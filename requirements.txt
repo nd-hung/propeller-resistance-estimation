@@ -1,4 +1,1 @@
-torch
-torchvision
-scipy
 numpy
