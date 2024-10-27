@@ -30,6 +30,8 @@ app_data = {
 }
 
 @app.route("/", methods=['GET', 'POST'])
+def home():
+    return render_template("index.html", app_data=app_data)
 
 @app.route("/about")
 def about():
