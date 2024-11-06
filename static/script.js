@@ -51,8 +51,9 @@ document.addEventListener("DOMContentLoaded", function () {
                             return [{
                                 text: label,
                                 fontColor: 'rgba(75, 192, 192, 1)'
-                            }];
-                        }
+                            }];     
+                        },
+                        boxWidth:0
                     }
                 }
 
