@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <style>
+        h3 {text-align: center;}
         #chart {
             width: 600px;
             height: 400px;
@@ -29,7 +30,7 @@
         }
 
         .slidecontainer {
-            width: 25%;
+            width: 75%;
         }
 
         .slider {
@@ -70,16 +71,24 @@
     <div class="container" style="padding-top: 40px; padding-bottom: 40px;">
         <div class="row justify-content-center">
             {# upper left - View image#}
-            <div class="col-4">
+            <div class="col-3">
                 {# View uploaded image #}
-                <h3>Line Graph Parameter Control</h3>
+                <h3>Parameter control</h3>
+                <div class="slidecontainer">
+                    a value: <span id="demo-a"></span> &nbsp &nbsp
+                    <input type="range" min="1" max="100" value="50" 
+                    class="range" id="slider-a">
+                    <!--
+                    <div class="slider" id="slider-a" title="a"></div>    
+                    -->
+                </div>
 
-                <p>a value <span id="demo-a"></span></p>
-                <div class="slider" id="slider-a" title="a"></div>
+                <div class="slidecontainer">
+                    b value: <span id="demo-b"></span> &nbsp &nbsp
+                    <input type="range" min="1" max="100" value="50" 
+                    class="range" id="slider-b">
+                </div>
                 
-                <p>b value <span id="demo-b"></span></p>
-                <div class="slider" id="slider-b"></div>
-
                 <!---
                 <div class="slidecontainer">
                     <input type="range" min="1" max="100" value="50" class="slider" id="slider-a">
@@ -93,7 +102,10 @@
                 -->
             </div>
             {# view detection graph #}
-            <div class="col-4">
+            <div class="col-3">
+                <h3>
+                    Graph visualization
+                </h3>
                 <canvas id="chart"></canvas>
             </div>
         </div>

@@ -39,12 +39,13 @@ const chart = new Chart(ctx, {
 const sliderA = document.getElementById('slider-a');
 const sliderB = document.getElementById('slider-b');
 var outputA = document.getElementById('demo-a')
+var outputB = document.getElementById('demo-b')
 
 noUiSlider.create(sliderA, {
     start: [0],
     range: {
-        'min': [-50],
-        'max': [50]
+        'min': [-100],
+        'max': [100]
     }
 });
 
@@ -58,9 +59,11 @@ noUiSlider.create(sliderB, {
 
 // Update the graph when sliders are moved
 function updateGraph() {
-    outputA.innerHTML = sliderA.value;
+    
     const a = parseFloat(sliderA.noUiSlider.get());
     const b = parseFloat(sliderB.noUiSlider.get());
+    outputA.innerHTML = a;
+    outputB.innerHTML = b;
 
     // Update labels and data for the line
     const labels = [];
