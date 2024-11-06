@@ -1,7 +1,125 @@
 {% extends 'includes/layout.html' %}
 
 {% block body %}
-<div>
-Hello there
-</div>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTU ship propeller resistance estimation</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <style>
+        #chart {
+            width: 600px;
+            height: 400px;
+            margin: 20px auto;
+        }
+
+        .slider {
+            margin: 20px;
+        }
+
+        .slidecontainer {
+            width: 25%;
+        }
+
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 25px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        .slider:hover {
+            opacity: 1;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            background: #04AA6D;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            background: #04AA6D;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container" style="padding-top: 40px; padding-bottom: 40px;">
+        <div class="row justify-content-center">
+            {# upper left - View image#}
+            <div class="col-4">
+                {# View uploaded image #}
+                <h3>Line Graph Parameter Control</h3>
+
+                <p>a value <span id="demo-a"></span></p>
+                <div class="slider" id="slider-a" title="a"></div>
+                
+                <p>b value <span id="demo-b"></span></p>
+                <div class="slider" id="slider-b"></div>
+
+                <!---
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="100" value="50" class="slider" id="slider-a">
+                    <p>Value: <span id="demo-a"></span></p>
+                </div>
+            
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="100" value="50" class="slider" id="slider-b">
+                    <p>Value: <span id="demo-b"></span></p>
+                </div>
+                -->
+            </div>
+            {# view detection graph #}
+            <div class="col-4">
+                <canvas id="chart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.js"></script>
+    <script src="static/script.js"></script>
+
+    <!---
+    <script>
+        var slider_a = document.getElementById("slider-a");
+        var output_a = document.getElementById("demo-a");
+        output_a.innerHTML = slider_a.value;
+
+        var slider_b = document.getElementById("slider-b");
+        var output_b = document.getElementById("demo-b");
+        output_b.innerHTML = slider_b.value;
+
+        slider.oninput = function () {
+            output.innerHTML = this.value;
+        }
+    </script>
+    -->
+
+
+</body>
+
+</html>
 {% endblock %}
