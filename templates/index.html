@@ -2,136 +2,40 @@
 
 {% block body %}
 
-
 <!DOCTYPE html>
 <html lang="en">
-
-
-
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NTU ship propeller resistance estimation</title>
+    <title>NTU-SPRS</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-    <style>
-        h3 {text-align: center;}
-        #chart {
-            width: 600px;
-            height: 400px;
-            margin: 20px auto;
-        }
-
-        .slider {
-            margin: 20px;
-        }
-
-        .slidecontainer {
-            width: 75%;
-        }
-
-        .slider {
-            -webkit-appearance: none;
-            width: 100%;
-            height: 25px;
-            background: #d3d3d3;
-            outline: none;
-            opacity: 0.7;
-            -webkit-transition: .2s;
-            transition: opacity .2s;
-        }
-
-        .slider:hover {
-            opacity: 1;
-        }
-
-        .slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 25px;
-            height: 25px;
-            background: #04AA6D;
-            cursor: pointer;
-        }
-
-        .slider::-moz-range-thumb {
-            width: 25px;
-            height: 25px;
-            background: #04AA6D;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
 </head>
-
 <body>
+    <div style="display: flex;">
+        <!-- Left Side: Sliders -->
+        <div style="flex: 1; padding: 20px;">
+            <h5 align="center">Parameters</h5>
+            a: <span id="a-label"></span> &nbsp &nbsp
+            <input type="range" id="a" min="-10" max="10" value="1" step="0.1"><br><br>
+            b: <span id="b-label"></span> &nbsp &nbsp
+            <input type="range" id="b" min="-10" max="10" value="0" step="0.1"><br><br>
+            c: <span id="c-label"></span> &nbsp &nbsp
+            <input type="range" id="c" min="-10" max="10" value="0" step="0.1"><br><br>
+            d: <span id="d-label"></span> &nbsp &nbsp
+            <input type="range" id="d" min="-10" max="10" value="0" step="0.1"><br><br>
+        </div>
 
-    <div class="container" style="padding-top: 40px; padding-bottom: 40px;">
-        <div class="row justify-content-center">
-            {# upper left - View image#}
-            <div class="col-3">
-                {# View uploaded image #}
-                <h3>Parameter control</h3>
-                <div class="slidecontainer">
-                    a value: <span id="demo-a"></span> &nbsp &nbsp
-                    <input type="range" min="1" max="100" value="50" 
-                    class="range" id="slider-a">
-                    <!--
-                    <div class="slider" id="slider-a" title="a"></div>    
-                    -->
-                </div>
-
-                <div class="slidecontainer">
-                    b value: <span id="demo-b"></span> &nbsp &nbsp
-                    <input type="range" min="1" max="100" value="50" 
-                    class="range" id="slider-b">
-                </div>
-                
-                <!---
-                <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" class="slider" id="slider-a">
-                    <p>Value: <span id="demo-a"></span></p>
-                </div>
-            
-                <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" class="slider" id="slider-b">
-                    <p>Value: <span id="demo-b"></span></p>
-                </div>
-                -->
-            </div>
-            {# view detection graph #}
-            <div class="col-3">
-                <h3>
-                    Graph visualization
-                </h3>
-                <canvas id="chart"></canvas>
-            </div>
+        <!-- Right Side: Chart -->
+        <div style="flex: 3; padding: 20px;">
+            <h5 align="center">Graph visualization</h5>
+            <canvas id="chart"></canvas>
         </div>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.js"></script>
-    <script src="static/script.js"></script>
-
-    <!---
-    <script>
-        var slider_a = document.getElementById("slider-a");
-        var output_a = document.getElementById("demo-a");
-        output_a.innerHTML = slider_a.value;
-
-        var slider_b = document.getElementById("slider-b");
-        var output_b = document.getElementById("demo-b");
-        output_b.innerHTML = slider_b.value;
-
-        slider.oninput = function () {
-            output.innerHTML = this.value;
-        }
-    </script>
-    -->
-
-
 </body>
-
 </html>
 {% endblock %}
