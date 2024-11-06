@@ -9,22 +9,20 @@ __location__ = os.path.realpath(
     os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 DEVELOPMENT_ENV = False
-# accept jpg images only
-ALLOWED_EXTENSIONS = {'jpg', 'jpeg'}
 
 app = Flask(__name__)
 app.config['TESTING'] = True
 app.config.update(
     TESTING=True,
-    SECRET_KEY='webapp2024'
+    SECRET_KEY='hungwebapp2024'
 )
-app.config['MAX_CONTENT_LENGTH'] = 2 * 1000 * 1000
+
 
 app_data = {
     "name": "Ship propeller resistance estimation system",
     "description": "Flask app",
     "author": "Hung Nguyen",
-    "html_title": "NTU-SPRS",
+    "html_title":"",
     "project_name": "",
     "keywords": "Ship building, Machine learning, Flask",
 }
